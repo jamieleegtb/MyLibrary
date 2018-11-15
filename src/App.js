@@ -1,32 +1,25 @@
-import React from 'react'
-// import * as BooksAPI from './BooksAPI'
-import './App.css'
+import React from 'react';
+import {Switch, Route} from 'react-router-dom';
 
-import Search from './components/pages/Search'
-import Home from './components/pages/Home'
+import './App.css';
+
+import Home from './components/pages/Home';
+import Search from './components/pages/Search';
 
 class BooksApp extends React.Component {
-  state = {
-    /**
-     * TODO: Instead of using this state variable to keep track of which page
-     * we're on, use the URL in the browser's address bar. This will ensure that
-     * users can use the browser's back and forward buttons to navigate between
-     * pages, as well as provide a good URL they can bookmark and share.
-     */
-    showSearchPage: false
-  }
-
   render() {
     return (
       <div className="app">
-        {this.state.showSearchPage ? (
-          <Search/>
-        ) : (
-          <Home/>
-        )}
+      {/* Renders the first child <Route> */}
+      <Switch>
+        {/* Route for Home */}
+        <Route exact path={"/"} component={Home}/>
+        {/* Route for Search */}
+        <Route exact path={"/search"} component={Search}/>
+      </Switch>
       </div>
-    )
+    );
   }
 }
 
-export default BooksApp
+export default BooksApp;

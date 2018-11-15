@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 
-import Book from './Book'
+import Book from './Book';
 
 export default class Shelf extends Component {
   render(){
@@ -13,6 +13,6 @@ export default class Shelf extends Component {
           </ol>
         </div>
       </div>
-    )
+    );
   }
 }

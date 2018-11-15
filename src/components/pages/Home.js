@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 
-import Shelf from '../Shelf'
-import OpenSearch from '../OpenSearch'
+import Shelf from '../Shelf';
+import OpenSearch from '../OpenSearch';
 
 export default class Home extends Component {
   render(){
@@ -18,6 +18,6 @@ export default class Home extends Component {
         <OpenSearch/>
 
       </div>
-    )
+    );
   }
 }
