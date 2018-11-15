@@ -9,9 +9,7 @@ export default class Shelf extends Component {
         <h2 className="bookshelf-title">Currently Reading</h2>
         <div className="bookshelf-books">
           <ol className="books-grid">
-            <li>
-              <Book/>
-            </li>
+            <Book/>
           </ol>
         </div>
       </div>
