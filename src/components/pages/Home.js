@@ -12,7 +12,9 @@ export default class Home extends Component {
         </div>
 
         <div className="list-books-content">
-          <Shelf/>
+          <Shelf title="Currently Reading"/>
+          <Shelf title="Want To Read"/>
+          <Shelf title="Read"/>
         </div>
 
         <OpenSearch/>
