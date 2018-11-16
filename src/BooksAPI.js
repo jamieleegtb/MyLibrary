@@ -1,4 +1,4 @@
-
+// On our first initial load we need to get the books from the API
 const api = "https://reactnd-books-api.udacity.com"
 
 
@@ -6,7 +6,8 @@ const api = "https://reactnd-books-api.udacity.com"
 let token = localStorage.token
 if (!token)
 /* - Generates random string, stores it in local storage and then authorization uses the token
-   - The server knows what information to send back based on the token */
+   - The server knows what information to send back based on the token
+   - Once the token is generated don't delete it or we just lose all our books */
   token = localStorage.token = Math.random().toString(36).substr(-8)
 
 const headers = {
