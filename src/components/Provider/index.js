@@ -17,7 +17,13 @@ export default class index extends Component {
       read:[],
       /* We cannot mutate the state. That's why we'll need a function to update this.state */
       addBooks: books => {
-
+        /* Books will be from getAll
+           We'll just pass it to this function which will be a prop */
+        const currentlyReading = books.filter(book => book.shelf === "currentlyReading");
+        const wantToRead = books.filter(book => book.shelf === "wantToRead");
+        const read = books.filter(book => book.shelf === "read");
+        /* We'll set the all books we are geeting  */
+        this.setState({books, currentlyReading, read, wantToRead});
       }
     }
   }

@@ -11,15 +11,7 @@ export default class Home extends Component {
   async componentDidMount(){
     try {
       const books = await getAll();
-      console.log(books);
-      /* We're going to pull the shelves from the books. */
-      /* We're retunring new array from our condition inside filter. */
-      /* We have our three shelves and all along with its books
-         We return a new array if the bookshelf matches. It will put it inside a new array. */
-      const currentlyReading = books.filter(book => book.shelf === "currentlyReading");
-      const wantToRead = books.filter(book => book.shelf === "wantToRead");
-      const read = books.filter(book => book.shelf === "read");
-      console.log(currentlyReading, wantToRead, read);
+      this.props.addBooks(books);
 
     } catch(error){
       console.log(error);
@@ -34,9 +26,11 @@ export default class Home extends Component {
         </div>
 
         <div className="list-books-content">
-          <Shelf title="Currently Reading"/>
-          <Shelf title="Want To Read"/>
-          <Shelf title="Read"/>
+          {/* We are going to enter this prop into its corresponding shelf
+             Shelves receives the books that we want */}
+          <Shelf title="Currently Reading" books={this.props.currentlyReading}/>
+          <Shelf title="Want To Read" books={this.props.wantToRead}/>
+          <Shelf title="Read" books={this.props.read}/>
         </div>
 
         <OpenSearch/>

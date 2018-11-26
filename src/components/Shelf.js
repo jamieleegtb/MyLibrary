@@ -9,7 +9,11 @@ export default class Shelf extends Component {
         <h2 className="bookshelf-title">{this.props.title}</h2>
         <div className="bookshelf-books">
           <ol className="books-grid">
-            <Book/>
+            {/* We are going to check if books is defined and will map over the books
+               Then we will spread out all the book details into its own component
+               instead of calling "this.books.... etc."  */}
+            {/* We are also going to need a key which will just be a book ID. */}
+            {this.props.books && this.props.books.map(book => <Book key={book.id} {...book} />)}
           </ol>
         </div>
       </div>
