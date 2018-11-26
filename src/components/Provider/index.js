@@ -14,7 +14,11 @@ export default class index extends Component {
       books:[],
       currentlyReading:[],
       wantToRead:[],
-      read:[]
+      read:[],
+      /* We cannot mutate the state. That's why we'll need a function to update this.state */
+      addBooks: books => {
+
+      }
     }
   }
 

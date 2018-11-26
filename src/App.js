@@ -19,11 +19,16 @@ class BooksApp extends React.Component {
               {/* Route for Home */}
               <Route exact path={"/"} render={() => (
                 <MyContext.Consumer>
+                  {/* Home has all props from Provider component */}
                   {context => <Home {...context}/>}
                 </MyContext.Consumer>
               )} />
               {/* Route for Search */}
-              <Route exact path={"/search"} component={Search}/>
+              <Route exact path={"/search"} render={() => (
+                <MyContext.Consumer>
+                  {context => <Search {...context}/>}
+                </MyContext.Consumer>
+              )} />
             </Switch>
         </Provider>
       </div>
