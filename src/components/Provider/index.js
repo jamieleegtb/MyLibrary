@@ -24,6 +24,31 @@ export default class index extends Component {
         const read = books.filter(book => book.shelf === "read");
         /* We'll set the all books we are geeting  */
         this.setState({books, currentlyReading, read, wantToRead});
+      },
+      /* When the user changes the books shelf category the book is going to move to the shelf selected. */
+      moveBook: (book, newShelf, allShelves) => {
+        console.log(newShelf);
+        /* We are going to map over all the books */
+        const newBooks = this.state.books.map(allBooks => {
+          /* The results from the update function return to three shelves and with all its corresponding book IDs
+             Next we want to find the new shelf that we moved the book to.
+             We select the shelf and we find the ID corresponding with the looped over books */
+          const foundID = allShelves[newShelf].find(
+            bookID => bookID === allBooks.id
+          );
+          /* If we find the ID corresponding with the looped over books then we will set the shelf to the new self */
+          if(foundID){
+            allBooks.shelf = newShelf;
+          }
+          /* Then we return to the modified object
+             Which will store it in the newBooks and we pass newBooks to addBooks
+             Like what we did with getAll books from the server */
+          return allBooks;
+        });
+        /*  For the new books and for all the books
+            We'll just come back up to the addBooks and call allBooks
+            allBooks will filter out each shelf */
+        this.state.addBooks(newBooks);
       }
     }
   }
