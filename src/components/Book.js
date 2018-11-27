@@ -23,7 +23,8 @@ export default class Book extends Component {
         <div className="book">
           <div className="book-top">
             {/* Background image is going to be a string template */}
-            <div className="book-cover" style={{ width: 128, height: 193, backgroundImage: `url(${this.props.imageLinks.thumbnail})` }}></div>
+            {/* If there is a thumbnail image we'll render it, if not we'll leave it blank */}
+            <div className="book-cover" style={{ width: 128, height: 193, backgroundImage: `url(${this.props.imageLinks ? this.props.imageLinks.thumbnail : "" })` }}></div>
             <div className="book-shelf-changer">
               {/* We are going to update each book detail with its own corresponding detail */}
               {/* "value={this.props.shelf}" = Book's own shelf is highlighted */}
@@ -38,7 +39,8 @@ export default class Book extends Component {
           </div>
           <div className="book-title">{this.props.title}</div>
           {/* Author is an array */}
-          <div className="book-authors">{this.props.authors[0]}</div>
+          {/* If there is an author name we'll render it, if not we'll leave it blank */}
+          <div className="book-authors">{this.props.authors ? this.props.authors[0] : " - "}</div>
         </div>
       </li>
     );
