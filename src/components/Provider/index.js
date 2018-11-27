@@ -42,7 +42,7 @@ export default class index extends Component {
           }
           /* Then we return to the modified object
              Which will store it in the newBooks and we pass newBooks to addBooks
-             Like what we did with getAll books from the server */
+             Like with getting all books from the server */
           return allBooks;
         });
         /*  For the new books and for all the books
