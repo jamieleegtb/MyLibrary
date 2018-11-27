@@ -4,6 +4,7 @@ import {update} from '../BooksAPI';
 export default class Book extends Component {
   /* 'e' is our target element */
   handleChange = async e => {
+    e.persist();
     try{
       const shelf = e.target.value;
       const book = this.props;

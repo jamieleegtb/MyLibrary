@@ -11,7 +11,6 @@ export default class Search extends Component {
     try {
       const books = await getAll();
       this.props.addBooks(books);
-
     } catch(error){
       console.log(error);
     }
@@ -76,6 +75,7 @@ export default class Search extends Component {
               return (<Book key={book.id} {...book} moveBook={this.props.moveBook} />);
               }
             )}
+            {this.state.books.length === 0 && <h1 style={{textAlign:"center"}}> No matched books or authors found </h1>}
           </ol>
         </div>
       </div>
